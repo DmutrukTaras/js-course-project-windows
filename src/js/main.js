@@ -1,10 +1,14 @@
+import './slider';
+import mod from './modules/modal';
+import tabs from './modules/tabs'
+
 
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
-    let modal = require('./modal.js');
+    mod.modals();
+    mod.test();
 
-    openModal();
-
+    tabs();
 
 });
