@@ -1,5 +1,5 @@
 const tabs = () => {
-    function tab(headerSelector, tabSelector, contentSelector, activeClass) {
+    function tab(headerSelector, tabSelector, contentSelector, activeClass, display = 'block') {
         let header = document.querySelector(headerSelector),
             tabsLink = document.querySelectorAll(tabSelector),
             content = document.querySelectorAll(contentSelector);
@@ -7,7 +7,6 @@ const tabs = () => {
 
         function hideTabContent() {
             for (let i = 0; i < content.length; i++) {
-                content[i].classList.remove('show');
                 content[i].classList.add('hide');
             }
             for (let i = 0; i < tabsLink.length; i++) {
@@ -21,7 +20,7 @@ const tabs = () => {
 
         function showTabContent(b = 0) {
             if (content[b].classList.contains('hide')) {
-                content[b].classList.add('show');
+                content[b].style.display = display;
                 content[b].classList.remove('hide');
             }
             tabsLink[b].classList.add(activeClass);
@@ -45,6 +44,7 @@ const tabs = () => {
 
     tab('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
     tab('.decoration_slider ', '.no_click', '.decoration_content>div>div', 'after_click');
+    tab('.balcon_icons', '.balcon_icons_img', '.big_img>img', 'do_image_more', 'inline-block');
 
 }
 
